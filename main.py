@@ -88,7 +88,7 @@ def send_email_to_user(letter, generic_arguments, email):
     mail_provider = Mail_Provider("jobupdatesfromeumetsat@gmail.com", 
                                   "scjpagonkjqozalo", 
                                   # "berkesenturk11@gmail.com",
-                                  email 
+                                  email,
                                   # f"Your cover letter for company: {company_name} as role: for {job_title}", 
                                   "Your cover letter is ready!",
                                   msg)
