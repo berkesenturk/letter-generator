@@ -21,20 +21,15 @@ logger.setLevel(logging.DEBUG)
 
 # todos
 
-# mail temp. priority: low
-# deploy to cloud: mid
-
 # Models
-
 
 class CoverLetterRequest(BaseModel):
     letter: str
     args: Dict[str, str]
-
-class CoverLetterResponse(BaseModel):
-    letter: str
+    email: str
 
 app = FastAPI(swagger_ui_parameters={"syntaxHighlight": False})
+
 class Item(BaseModel):
     text: str
 
@@ -51,7 +46,7 @@ async def generate_cover_letter(body: CoverLetterRequest):
 
     # send email
 
-    send_email_to_user(result, loaded_body['args'])
+    send_email_to_user(result, loaded_body['args'], loaded_body['email'])
     return result
 
 
@@ -81,7 +76,7 @@ def replace_arguments_with_values(letter, generic_arguments):
     changed_letter = changed_letter.replace("\n", "<br>")
     return changed_letter
 
-def send_email_to_user(letter, generic_arguments):
+def send_email_to_user(letter, generic_arguments, email):
     msg ="<!DOCTYPEhtml><html><head><style>table{font-family:arial,sans-serif;}td,th{border:1pxsolid#dddddd;text-align:left;padding:8px;}tr:nth-child(even){background-color:#dddddd;}</style></head>"
 
     msg += letter
@@ -92,7 +87,8 @@ def send_email_to_user(letter, generic_arguments):
                                 
     mail_provider = Mail_Provider("jobupdatesfromeumetsat@gmail.com", 
                                   "scjpagonkjqozalo", 
-                                  "berkesenturk11@gmail.com", 
+                                  # "berkesenturk11@gmail.com",
+                                  email 
                                   # f"Your cover letter for company: {company_name} as role: for {job_title}", 
                                   "Your cover letter is ready!",
                                   msg)
