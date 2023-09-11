@@ -8,6 +8,13 @@ Life is too short for cover letters and we generally use templates for that :). 
 
 You can simply write a template article or letter and state the places you want to be replaced with squared brackets such as [Company Name]. Don't forget to add these to the args node with their corresponding value.
 
+```
+$ uvicorn main:app --host 0.0.0.0 --port 5000
+$ cd lettergenerator
+$ python3 manage.py runserver
+```
+
 # What's next?
 
-I'm planning to make the ui part of it if I'll have the time for that and after, you will be able to use it easier
+- I'll make ui more prettier than this :) 
+- Security stuff
