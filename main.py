@@ -7,6 +7,7 @@ from pydantic import BaseModel
 import json
 from typing import List,Dict
 import logging
+from fastapi.middleware.cors import CORSMiddleware
 
 
 logger = logging.getLogger(__name__)
@@ -28,7 +29,15 @@ class CoverLetterRequest(BaseModel):
     args: Dict[str, str]
     email: str
 
+
 app = FastAPI(swagger_ui_parameters={"syntaxHighlight": False})
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Item(BaseModel):
     text: str
