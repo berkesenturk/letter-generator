@@ -2,7 +2,7 @@
 # exit on error
 set -o errexit
 
-poetry install
+lettergenerator install
 
 python manage.py collectstatic --no-input
 python manage.py migrate
