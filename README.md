@@ -2,7 +2,7 @@
 
 # About
 
-Life is too short for cover letters and we generally use templates for that :). However even replacing values are a headache and I wanted to make that easier. I named this little project as Letter Generator because I want to extend with additional capabilities. So, don't hesitate to request it from me :)
+Replacing values are a headache in a template article and I wanted to make that easier. I named this little project as Letter Generator because I want to extend with additional capabilities. So, don't hesitate to request it from me :)
 
 # How does it work?
 
